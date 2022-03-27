@@ -78,8 +78,6 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.groupBox1.Controls.Add(this.conectar);
-            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.WinRate);
             this.groupBox1.Controls.Add(this.Ranking);
             this.groupBox1.Controls.Add(this.Victorias);
@@ -96,7 +94,7 @@
             // 
             // conectar
             // 
-            this.conectar.Location = new System.Drawing.Point(28, 184);
+            this.conectar.Location = new System.Drawing.Point(92, 321);
             this.conectar.Name = "conectar";
             this.conectar.Size = new System.Drawing.Size(75, 23);
             this.conectar.TabIndex = 13;
@@ -106,7 +104,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(28, 229);
+            this.button1.Location = new System.Drawing.Point(92, 396);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 12;
@@ -211,6 +209,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(741, 562);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.conectar);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
