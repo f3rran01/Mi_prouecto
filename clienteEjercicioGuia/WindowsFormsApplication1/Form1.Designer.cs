@@ -32,16 +32,17 @@
             this.nombre = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.conectar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.WinRate = new System.Windows.Forms.RadioButton();
             this.Ranking = new System.Windows.Forms.RadioButton();
             this.Victorias = new System.Windows.Forms.RadioButton();
+            this.conectar = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.registro = new System.Windows.Forms.Button();
             this.LogIn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -84,6 +85,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.nombre);
+            this.groupBox1.Enabled = false;
             this.groupBox1.Location = new System.Drawing.Point(288, 209);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(363, 281);
@@ -91,26 +93,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Peticion";
             this.groupBox1.EnabledChanged += new System.EventHandler(this.LogIn_Click);
-            // 
-            // conectar
-            // 
-            this.conectar.Location = new System.Drawing.Point(92, 321);
-            this.conectar.Name = "conectar";
-            this.conectar.Size = new System.Drawing.Size(75, 23);
-            this.conectar.TabIndex = 13;
-            this.conectar.Text = "Conectar";
-            this.conectar.UseVisualStyleBackColor = true;
-            this.conectar.Click += new System.EventHandler(this.conectar_Click_1);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(92, 396);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Desconectar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // WinRate
             // 
@@ -144,6 +126,26 @@
             this.Victorias.TabStop = true;
             this.Victorias.Text = "Dime jugador con mas victorias";
             this.Victorias.UseVisualStyleBackColor = true;
+            // 
+            // conectar
+            // 
+            this.conectar.Location = new System.Drawing.Point(92, 321);
+            this.conectar.Name = "conectar";
+            this.conectar.Size = new System.Drawing.Size(75, 23);
+            this.conectar.TabIndex = 13;
+            this.conectar.Text = "Conectar";
+            this.conectar.UseVisualStyleBackColor = true;
+            this.conectar.Click += new System.EventHandler(this.conectar_Click_1);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(92, 396);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "Desconectar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -182,6 +184,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.registro);
             this.groupBox2.Controls.Add(this.LogIn);
             this.groupBox2.Controls.Add(this.textBox2);
             this.groupBox2.Controls.Add(this.label1);
@@ -194,9 +197,19 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Iniciar sesion";
             // 
+            // registro
+            // 
+            this.registro.Location = new System.Drawing.Point(114, 136);
+            this.registro.Name = "registro";
+            this.registro.Size = new System.Drawing.Size(75, 23);
+            this.registro.TabIndex = 13;
+            this.registro.Text = "Registrarse";
+            this.registro.UseVisualStyleBackColor = true;
+            this.registro.Click += new System.EventHandler(this.registro_Click);
+            // 
             // LogIn
             // 
-            this.LogIn.Location = new System.Drawing.Point(56, 132);
+            this.LogIn.Location = new System.Drawing.Point(22, 136);
             this.LogIn.Name = "LogIn";
             this.LogIn.Size = new System.Drawing.Size(75, 23);
             this.LogIn.TabIndex = 12;
@@ -241,6 +254,7 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button LogIn;
+        private System.Windows.Forms.Button registro;
     }
 }
 
