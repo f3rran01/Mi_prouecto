@@ -65,6 +65,7 @@ int main(int argc, char *argv[])
 	struct sockaddr_in serv_adr;
 	char peticion[512];
 	char respuesta[512];
+	
 	// INICIALITZACIONS
 	// Obrim el socket
 	if ((sock_listen = socket(AF_INET, SOCK_STREAM, 0)) < 0)
@@ -98,6 +99,7 @@ int main(int argc, char *argv[])
 		//hasta que se desconecte
 	while (terminar ==0)
 	{
+		memset(respuesta, 0, 512); 
 		// Ahora recibimos su peticion
 		ret=read(sock_conn,peticion, sizeof(peticion));
 		printf ("Recibida una petición\n");
@@ -162,6 +164,7 @@ int main(int argc, char *argv[])
 		{   
 			int puntos;
 			
+			
 			// consulta SQL para obtener una tabla con todos los datos
 			// de la base de datos
 			err=mysql_query (conn, "SELECT jugadores.username,jugadores.puntos FROM (jugadores)ORDER  BY puntos DESC");
@@ -190,7 +193,7 @@ int main(int argc, char *argv[])
 				row = mysql_fetch_row (resultado);
 		
 			}
-			printf (respuesta);
+			
 		
 			
 			write  (sock_conn, respuesta,strlen(respuesta));
@@ -212,7 +215,7 @@ int main(int argc, char *argv[])
 			strcat (consulta, "';");
 			printf("consulta = %s\n", consulta);
 			err=mysql_query (conn, consulta);
-			
+		
 			
 			if (err!=0) {
 				printf ("Error, nombre o contraseña incorrectos %u %s\n",
@@ -247,14 +250,35 @@ int main(int argc, char *argv[])
 			p = strtok( NULL, "/");
 			strcpy (password, p);
 			char consulta [100];
+			char consulta2 [100];
+			char consulta3[100];
 			
-			strcpy(consulta, "INSERT INTO jugadores VALUES (NULL,'");
+			int ID;			
 			
-			strcat (consulta, nombre); 
-			strcat (consulta, "'");
-			strcat (consulta, ",'"); 
-			strcat (consulta, password); 
-			strcat (consulta, "');");
+			sprintf(consulta2,"SELECT (COUNT(jugadores.username))+1 FROM (jugadores)");
+			
+			err=mysql_query (conn, consulta2);
+			if (err!=0) {
+				printf ("Error al consultar datos de la base %u %s\n",
+						mysql_errno(conn), mysql_error(conn));
+				exit (1);
+			}
+			
+			resultado = mysql_store_result (conn);
+			row = mysql_fetch_row (resultado);
+			
+			if (row == NULL)
+				printf ("No se han obtenido datos en la consulta\n");
+			else
+				while (row !=NULL){
+					
+					ID = atoi (row[0]);
+					
+					row = mysql_fetch_row (resultado);
+			}
+
+			sprintf(consulta, "INSERT INTO jugadores VALUES(%d,'%s','%s',0,0)",ID,nombre,password);
+			
 			err = mysql_query(conn, consulta);
 			
 			if (err!=0) {
@@ -262,24 +286,8 @@ int main(int argc, char *argv[])
 						mysql_errno(conn), mysql_error(conn));
 				exit (1);
 			}
-			
-
-			resultado = mysql_store_result (conn);
-			row = mysql_fetch_row (resultado);
-	
-			if (row == NULL)
-			{
-				printf ("Error, no se ha podido registrar\n");
-				strcpy(respuesta,"No se ha podido registrar\n");
-			}
-			else
-				
-				while (row !=NULL)
-				{
-					printf ("Username: %s\n", row[1]);
-					row = mysql_fetch_row (resultado);
-					sprintf(respuesta, "Registrado %s,%s;", nombre, password);
-				}
+		
+			sprintf(respuesta,"Registrado\n",respuesta);
 			write (sock_conn,respuesta, strlen(respuesta));
 		}
 		else if (codigo==3)
@@ -357,8 +365,9 @@ int main(int argc, char *argv[])
 			sprintf(resultado,"%.2f%\n",winrate);	
 			printf ("Respuesta: %s %d\n",resultado);
 			// Enviamos la respuesta
-			write (sock_conn,resultado,strlen(resultado));
-		}
+		
+		}	
+		write (sock_conn,resultado,strlen(resultado));
 	}
 		mysql_close (conn);
 	
