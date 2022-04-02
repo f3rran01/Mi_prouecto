@@ -126,3 +126,12 @@ C:\share\SO-Proyecto-main\clienteEjercicioGuia\WindowsFormsApplication1\obj\Debu
 C:\share\SO-Proyecto-main\clienteEjercicioGuia\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
 C:\share\SO-Proyecto-main\clienteEjercicioGuia\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
 C:\share\SO-Proyecto-main\clienteEjercicioGuia\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\share\ProyectoTemporal\Mi_prouecto\clienteEjercicioGuia\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+C:\share\ProyectoTemporal\Mi_prouecto\clienteEjercicioGuia\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\share\ProyectoTemporal\Mi_prouecto\clienteEjercicioGuia\WindowsFormsApplication1\obj\Debug\clienteForm.csproj.GenerateResource.cache
+C:\share\ProyectoTemporal\Mi_prouecto\clienteEjercicioGuia\WindowsFormsApplication1\obj\Debug\clienteForm.csproj.CoreCompileInputs.cache
+C:\share\ProyectoTemporal\Mi_prouecto\clienteEjercicioGuia\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\share\ProyectoTemporal\Mi_prouecto\clienteEjercicioGuia\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\share\ProyectoTemporal\Mi_prouecto\clienteEjercicioGuia\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\share\ProyectoTemporal\Mi_prouecto\clienteEjercicioGuia\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\share\ProyectoTemporal\Mi_prouecto\clienteEjercicioGuia\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb

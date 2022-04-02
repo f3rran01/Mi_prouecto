@@ -95,8 +95,8 @@ namespace WindowsFormsApplication1
         {
             //Creamos un IPEndPoint con el ip del servidor y puerto del servidor 
             //al que deseamos conectarnos
-            IPAddress direc = IPAddress.Parse("192.168.56.101");
-            IPEndPoint ipep = new IPEndPoint(direc, 9050);
+            IPAddress direc = IPAddress.Parse("192.168.56.102");
+            IPEndPoint ipep = new IPEndPoint(direc, 9052 );
 
 
             //Creamos el socket 
@@ -113,40 +113,6 @@ namespace WindowsFormsApplication1
                 MessageBox.Show("No he podido conectar con el servidor");
                 return;
             }
-
-        }
-
-        private void nombre_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LogIn_Click(object sender, EventArgs e)
-        {
-
-            string nombre = textBox1.Text;
-            string password = textBox2.Text;
-            string mensaje = "4/" + nombre + "/" + password;
-            // Enviamos al servidor el nombre tecleado
-
-            byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
-            server.Send(msg);
-
-            //Recibimos la respuesta del servidor
-            byte[] msg2 = new byte[80];
-            server.Receive(msg2);
-            mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
-           
-            if (mensaje == "Logueado correctamente")
-            {
-                MessageBox.Show(mensaje);
-                groupBox1.Enabled = true;
-            }
-            
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
 
         }
 
@@ -169,6 +135,28 @@ namespace WindowsFormsApplication1
                 MessageBox.Show(" Error a la hora de registrarse");
 
             
+        }
+
+        private void Login_click(object sender, EventArgs e)
+        {
+            string nombre = textBox1.Text;
+            string password = textBox2.Text;
+            string mensaje = "4/" + nombre + "/" + password;
+            // Enviamos al servidor el nombre tecleado
+
+            byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
+            server.Send(msg);
+
+            //Recibimos la respuesta del servidor
+            byte[] msg2 = new byte[80];
+            server.Receive(msg2);
+            mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
+
+            if (mensaje == "Logueado correctamente")
+            {
+                MessageBox.Show(mensaje);
+                groupBox1.Enabled = true;
+            }
         }
     }
 
